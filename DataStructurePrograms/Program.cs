@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 
 namespace DataStructurePrograms
@@ -13,11 +14,12 @@ namespace DataStructurePrograms
             string inputFilePath = @"H:\All Asignment\Assignment16&17\DataStructures\DataStructurePrograms\DataStructurePrograms\InputFile.txt";
             string outputFilePath = @"H:\All Asignment\Assignment16&17\DataStructures\DataStructurePrograms\DataStructurePrograms\OutputFile.txt";
             string equationFilePath = @"H:\All Asignment\Assignment16&17\DataStructures\DataStructurePrograms\DataStructurePrograms\Equation.txt";
+            string hashingNumbersFilePath = @"H:\All Asignment\Assignment16&17\DataStructures\DataStructurePrograms\DataStructurePrograms\HashingInputNumbers.txt";
             bool isRun = true;
             while (isRun)
             {
-                Console.WriteLine("Select and enter program number:" +
-                    "(1. Unordered List, 2. Ordered List, 3. Balanced Parentheses, 4. Bank Cash Counter,5. Palindrome Check by deque");
+                Console.WriteLine("\nSelect and enter program number:" +
+                    "(1. Unordered List, 2. Ordered List, 3. Balanced Parentheses, 4. Bank cash counter,5. Palindrome check by deque, 6. Hashing function");
                 int programOption = Convert.ToInt32(Console.ReadLine());
                 switch (programOption)
                 {
@@ -68,12 +70,17 @@ namespace DataStructurePrograms
                     case 5:
                         new PalindromeCheckByDeque().isPalindrome();
                         break;
+                    case 6:
+                        int[] numbersList = Array.ConvertAll(File.ReadAllText(hashingNumbersFilePath).Split(","), int.Parse);
+                         Array.Sort(numbersList);
+                        new HashingFunction().Hashing(numbersList);
+                        break;
                     default:
                         isRun = !isRun;
                         break;
                 }
             }
+
         }
-        
     }
 }
