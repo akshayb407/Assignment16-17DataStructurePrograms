@@ -17,7 +17,7 @@ namespace DataStructurePrograms
             while (isRun)
             {
                 Console.WriteLine("Select and enter program number:" +
-                    "(1. Unordered List, 2. Ordered List, 3. Balanced Parentheses, 4. Bank Cash Counter");
+                    "(1. Unordered List, 2. Ordered List, 3. Balanced Parentheses, 4. Bank Cash Counter,5. Palindrome Check by deque");
                 int programOption = Convert.ToInt32(Console.ReadLine());
                 switch (programOption)
                 {
@@ -64,6 +64,9 @@ namespace DataStructurePrograms
                             }
 
                         }
+                        break;
+                    case 5:
+                        new PalindromeCheckByDeque().isPalindrome();
                         break;
                     default:
                         isRun = !isRun;
